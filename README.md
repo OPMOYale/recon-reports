@@ -33,13 +33,13 @@ This folder is already a Git repository, so:
 4. Wait ~1 minute. Your site goes live at:
 
    ```
-   https://<your-github-username>.github.io/recon-reports/
+   https://OPMOYale.github.io/recon-reports/
    ```
 
    The expense report is at:
 
    ```
-   https://<your-github-username>.github.io/recon-reports/expense-report.html
+   https://OPMOYale.github.io/recon-reports/expense-report.html
    ```
 
 Share the **link** and the **password** through *separate* channels (e.g. link by
