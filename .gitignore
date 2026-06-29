@@ -1,0 +1,11 @@
+# Working area used by publish_report.py — never commit unencrypted reports
+.tmp/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Anything explicitly marked as a source/unencrypted report
+*.source.html
+_source/
