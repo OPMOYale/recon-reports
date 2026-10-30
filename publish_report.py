@@ -65,6 +65,13 @@ def encrypt(source: Path, password: str, out_name: str):
         sys.exit("ERROR: could not find `npx` on PATH. Install Node.js, then retry.")
     if not source.exists():
         sys.exit(f"ERROR: source report not found: {source}")
+    # Recon v3 private-inputs lane: internal editions carry non-public Yale or
+    # member data and must never reach this public repo (encryption is not
+    # enough protection for that data). Publish the shareable edition instead.
+    head = source.read_text(encoding="utf-8", errors="replace")[:4000]
+    if source.stem.endswith("_INTERNAL") or 'name="recon-edition" content="internal"' in head:
+        sys.exit("ERROR: this is an INTERNAL Recon edition (contains non-public data) — refusing to publish.\n"
+                 "       Publish the shareable edition (same name without _INTERNAL) instead.")
 
     TMP.mkdir(exist_ok=True)
     staged = TMP / out_name            # encrypt a copy named exactly as we want the output
